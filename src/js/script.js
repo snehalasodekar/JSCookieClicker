@@ -7,7 +7,7 @@
 
     let score = 0;
     let multiplierValue = 1; //initially set it as 1
-    let multiplierPurchaseValue = 10;
+    let multiplierPurchaseValue = 30;
     let firstClick = 0; // if not define then the output will display double value each time
     
 
@@ -58,4 +58,9 @@
         }, 1000);
          
    });
+
+   document.getElementById("bonusClickBtn").addEventListener("click",()=>{
+
+   });
+
 })();
