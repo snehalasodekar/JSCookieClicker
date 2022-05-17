@@ -1,5 +1,26 @@
 body{
     text-align: center;
-    /* background-image: url("../images/bg.png"); */
-    background-repeat: repeat-x;
+    background-image: url("../images/bkg.png");
+    background-repeat: repeat;
+    color: #c6a435;
+    font-family: ;
 }
+.container{
+    /* background-color: #3d2e31;   */
+    opacity: 0.9;
+    
+   /* background-image: url("../images/paperbg.jpg");*/
+}
+#cookieLabel{
+    width: 10%;
+    border: 1px solid pink;
+}
+header{
+    background-color: #3d2e31;  
+    font-family: 'Rubik Glitch', cursive;
+}
+.CookieSection,.scoreDashboard{
+    background-color: #3d2e31; 
+    min-height: 30rem;
+}
+/* font-family: 'Anton', sans-serif; */
