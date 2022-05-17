@@ -1,82 +1,61 @@
-/* Javascript Cookie Cliker
- *
- * on click of cookie increase the counter
- *
- */
-
 (function() {
-    let labelData = document.getElementById("cookieLabel");
-    let scoreLabel = document.getElementById("scoreLabel");
-    let cookieClicks = 0;
-    let multiplierVal = 0; //step 2 :variable to increase score by multiplier value
-    let val2 =0,val = 0;
-    let autoClcik = document.getElementById("autoClcik");
-    let autoCookie =3;
-    autoClcik.innerHTML = 1;
-   let multIncrease = 30;
-        scorePurchase.innerHTML = multIncrease;
-    let autoClickCost = 150;
+    let cookieImg = document.getElementById("cookieImg");
+    let scoreDisplay = document.getElementById("scoreLabel");
+    let purchaseCookieValue =  document.getElementById("purchaseCookie");
+    let multiplierPurchaseLabel = document.getElementById("scorePurchase");
 
 
-
-        // your code here
-   document.getElementById("cookie").addEventListener("click",()=>{
-        if(multiplierVal > 0){ //
-            val2 = ++cookieClicks * multiplierVal;
-            labelData.innerHTML = val2;
-            scoreLabel.innerHTML = val2;
-            console.log("val2 = "+val2);
-
-        }else{ // step 1 : on click of cookie increase the score.
-            val = ++cookieClicks;
-            labelData.innerHTML = val;
-            scoreLabel.innerHTML = val;
-            console.log("val = "+val);
-        }
-   });
-   //Purchase cookie
-   document.getElementById("purchase").addEventListener("click",()=>{
-    if(multIncrease >= 30 && multIncrease <= cookieClicks ){
-        if(cookieClicks >= multIncrease ){ 
-            document.getElementById("purchaseCookie").innerHTML = multiplierVal++;
-            cookieClicks = cookieClicks - multIncrease;
-            cookieLabel.innerHTML = cookieClicks;
-            scoreLabel.innerHTML = cookieClicks;
-            multIncrease = multIncrease+20+cookieClicks
-            scorePurchase.innerHTML = multIncrease;
-            
-        }else if(val2 >=multIncrease){
-            document.getElementById("purchaseCookie").innerHTML = multiplierVal++;
-            val2 = val2 - multIncrease;
-            scoreLabel.innerHTML = cookieClicks;
-            multIncrease = multIncrease+20+cookieClicks
-            scorePurchase.innerHTML = multIncrease;
-        }else if(val >= autoClcik) {
-            document.getElementById("purchaseCookie").innerHTML = multiplierVal++;
-            val = val - multIncrease;
-            scoreLabel.innerHTML = cookieClicks;
-            multIncrease = multIncrease+20+cookieClicks
-            scorePurchase.innerHTML = multIncrease;
-            
-        }
-    }
-        document.getElementById("purchaseCookie").innerHTML = multiplierVal;
-        console.log("after click purchase cnt = "+cookieClicks);
-        console.log("after click purchase val = "+val);
-        console.log("after click purchase val2 = "+val2);
-   });
+    let score = 0;
+    let multiplierValue = 1; //initially set it as 1
+    let multiplierPurchaseValue = 10;
+    let firstClick = 0; // if not define then the output will display double value each time
     
-   document.getElementById("autoClickBtn").addEventListener("click",()=>{
-    let cookie = document.getElementById("scoreLabel").textContent;
-    cookie = parseInt(cookie);
-        if(cookie >= autoCookie){
-            setInterval(()=>{
-                cookie++;
-            }, 1000);
-            cookieLabel.innerHTML = cookie;
-            scoreLabel.innerHTML = cookie;
-        } else{
-            alert("You don't have enough score to purchase Auto Cookie Maker")
+
+    /*
+    *   Display values to lables using function
+    */
+    var assignVal =(element,value)=>{
+        element.innerText = value;
+    }
+    assignVal(purchaseCookieValue,multiplierValue);
+    assignVal(multiplierPurchaseLabel,multiplierPurchaseValue);
+
+    /*
+    *   On cookie image click increase score by 1
+    */
+   document.getElementById("cookieImg").addEventListener("click",()=>{
+        if(multiplierValue > firstClick){
+            score = score + multiplierValue;
+            assignVal(scoreDisplay,score);
+            console.log("score = "+score +" multiplierValue = "+multiplierValue+" firstClick = "+firstClick);
         }
+   });
+   
+   /*
+   *    Multiplier cookie 
+   */
+   document.getElementById("purchase").addEventListener("click",()=>{
+        if(score >= multiplierPurchaseValue){
+
+            multiplierValue++;firstClick++;
+            score = score - multiplierPurchaseValue;
+            score = score * multiplierValue;
+            assignVal(purchaseCookieValue,multiplierValue);
+            multiplierPurchaseValue = multiplierPurchaseValue + multiplierValue + 10 + score;
+             assignVal(scoreDisplay,score);
+            assignVal(multiplierPurchaseLabel,multiplierPurchaseValue);
+        }
+   });
+
+    /*
+    * when user purchase the auto cookie maker then increse score by 1 for each second
+    */
+       
+   document.getElementById("autoClickBtn").addEventListener("click",()=>{
+         setInterval(()=> {
+            indexVariable = ++score % 360 + 1; // SET { 1-360 }
+            assignVal(scoreDisplay,score);
+        }, 1000);
+         
    });
 })();
