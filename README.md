@@ -1,5 +1,8 @@
 # JSCookieClicker
 Make  a cookie clicker game using javascript
+// Links
+:Gsame Url : https://snehalchetan.github.io/JSCookieClicker/
+
 
 #How to play Cookie Clicker
 1. When you click on cookie, for each click you will get one point or score.
@@ -10,3 +13,10 @@ Make  a cookie clicker game using javascript
 6. The automaker gives you one point each second.
 7. To buy bonus you need the 500 points.
 8. The Bonus gives you 20% points per cookie click for 30 second, it shows a count down also.
+
+
+
+Complete : 
+Need to disable the Bonus button after purchase and finish the 30 seconds.
+close the timer.
+
