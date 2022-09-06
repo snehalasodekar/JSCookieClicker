@@ -1,10 +1,10 @@
 # JSCookieClicker
 Make  a cookie clicker game using javascript
-// Links
-:Gsame Url : https://snehalchetan.github.io/JSCookieClicker/
+
+Game Url : https://snehalchetan.github.io/JSCookieClicker/
 
 
-#How to play Cookie Clicker
+### How to play Cookie Clicker
 1. When you click on cookie, for each click you will get one point or score.
 2. You can use these points to purchase multiplier, auto cookie maker and Bonus
 3. When your score reach up to 30 you can able to purchase a multiplier.
