@@ -20,7 +20,7 @@
     let multiplierPurchaseValue = 30;
     let firstClick = 0; // if not define then the output will display double value each time
     let timeLeft = 30;
-    let bonusPurchase = 10;
+    let bonusPurchase = 500;
     let bonusEnable = false;
     let bonusClickFlag = false;
 
@@ -113,14 +113,22 @@ if(multiplierValue >= 3 && score >= bonusPurchase){
     * Bonus 30 second timer display
     */
     function countdown() {
-        if (timeLeft == -1) {
+        if (timeLeft < 0) {
             clearTimeout(timerId);
+            timeLeft = 30;
             bonusEnable = false;
+            if(timeLeft == 0){
+                document.getElementById("bonusClickBtn").disabled = true;
+            }
         } else {
             assignVal(countdownDiv,timeLeft);
             timeLeft--;
+            if(timeLeft == 0){
+                document.getElementById("bonusClickBtn").disabled = true;
+            }
         }
     }
+    
    /*
    *    Multiplier cookie 
    */
@@ -147,23 +155,23 @@ if(multiplierValue >= 3 && score >= bonusPurchase){
             indexVariable = ++score % 360 + 1; // SET { 1-360 }
             assignVal(scoreDisplay,score);
         }, 1000);
-         
+        document.getElementById("autoClickBtn").disabled = 'true';
    });
+
+   
 
    document.getElementById("bonusClickBtn").addEventListener("click",()=>{
        if(score < 10000000){
-        if(score > bonusPurchase && bonusEnable == false){
-            
-            score = score - bonusPurchase;
-            assignVal(scoreDisplay,score);
-            bonusEnable = true; //make the bonus flag enable
-            bonusClickFlag = true;
-            bonusPurchase = parseInt((bonusPurchase + 30) *0.35); // on each bonus purchase increase the purchasing value of bonus value by 0.35 and add 30 points to it.
-            
-       }else{}
-
+            if(score > bonusPurchase && bonusEnable == false){
+                
+                score = score - bonusPurchase;
+                assignVal(scoreDisplay,score);
+                bonusEnable = true; //make the bonus flag enable
+                bonusClickFlag = true;
+                bonusPurchase = parseInt((bonusPurchase + 30) *0.35); // on each bonus purchase increase the purchasing value of bonus value by 0.35 and add 30 points to it.
+        }
        }else{ alert("Congratulations you win..!!!");}
-        
+       document.getElementById("bonusClickBtn").disabled = 'true';
    });
 
 })();
