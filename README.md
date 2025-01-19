@@ -1,7 +1,7 @@
 # JSCookieClicker
 Make  a cookie clicker game using javascript
 
-Game Url : https://snehalchetan.github.io/JSCookieClicker/
+Game Url : https://snehalasodekar.github.io/JSCookieClicker/
 
 
 ### How to play Cookie Clicker
